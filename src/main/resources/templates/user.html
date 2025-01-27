@@ -49,6 +49,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>LastName</th>
+                                    <th>Age</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                 </tr>
@@ -56,7 +58,9 @@
                                 <tbody>
                                 <tr class="table-secondary" th:each="user : ${user}">
                                     <td th:text="${user.id}">Id</td>
-                                    <td th:text="${user.username}">User</td>
+                                    <td th:text="${user.username}">Name</td>
+                                    <td th:text="${user.lastname}">Lastname</td>
+                                    <td th:text="${user.age}">Age</td>
                                     <td th:text="${user.email}">Email</td>
                                     <td th:each="role: ${user.getRoles()}"
                                         th:text="${role.getName().replace('ROLE_', '')}">Role

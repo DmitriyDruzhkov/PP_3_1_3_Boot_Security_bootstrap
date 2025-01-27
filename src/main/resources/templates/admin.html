@@ -61,6 +61,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Lastname</th>
+                                        <th>Age</th>
                                         <th>Email</th>
                                         <th>Role</th>
                                         <th>Edit</th>
@@ -70,7 +72,9 @@
                                     <tbody>
                                     <tr th:each="user : ${users}">
                                         <td th:text="${user.id}">Id</td>
-                                        <td th:text="${user.username}">User</td>
+                                        <td th:text="${user.username}">Name</td>
+                                        <td th:text="${user.lastname}">Lastname</td>
+                                        <td th:text="${user.age}">Age</td>
                                         <td th:text="${user.email}">Email</td>
                                         <td th:each="role: ${user.getRoles()}"
                                             th:text="${role.getName().replace('ROLE_', '')}">Role
@@ -108,6 +112,12 @@
                                         <label for="username" class="col-form-label">Username</label>
                                         <input th:field="*{username}" type="text" class="form-control"
                                                placeholder="Username" id="username">
+                                        <label for="lastname" class="col-form-label">Lastname</label>
+                                        <input th:field="*{lastname}" type="text" class="form-control"
+                                               placeholder="Username" id="lastname">
+                                        <label for="age1" class="col-form-label">Age</label>
+                                        <input th:field="*{age}" type="text" class="form-control"
+                                               placeholder="Age" id="age1">
                                         <label for="email" class="col-form-label">Email</label>
                                         <input th:field="*{email}" type="text" class="form-control" placeholder="Email"
                                                id="email">
@@ -158,6 +168,21 @@
                                        th:name="username"
                                        id="editUserName" placeholder="Username"
                                        th:value="${user.username}" required> </label></p>
+                            <p><label for="editLastName"> <strong>Lastname</strong>
+                                <input class="form-control"
+                                       th:type="text"
+                                       th:name="lastname"
+                                       id="editLastName" placeholder="Username"
+                                       th:value="${user.lastname}" required> </label></p>
+
+                            <p><label for="age"><strong>Age</strong>
+                                <br>
+                                <input class="form control"
+                                       th:type="text"
+                                       th:name="age"
+                                       id="age" placeholder="Age"
+                                       th:value="${user.age}" required> </label></p>
+
                             <p><label for="editEmail"> <strong>Email</strong>
                                 <input class="form-control" th:type="email" th:name="email" id="editEmail"
                                        placeholder="Email"
@@ -211,6 +236,18 @@
                                        th:type="text"
                                        th:name="firstName"
                                        th:value="${user.username}">
+                            </label></p>
+                            <p><label for="deleteUserLastName"> <strong>Last name</strong>
+                                <input class="form-control text-secondary" type="text" name="firstName" id="deleteUserLastName" disabled
+                                       th:type="text"
+                                       th:name="lastName"
+                                       th:value="${user.lastname}">
+                            </label></p>
+                            <p><label for="deleteUserAge"> <strong>Age</strong>
+                                <input class="form-control text-secondary" type="text" name="firstName" id="deleteUserAge" disabled
+                                       th:type="text"
+                                       th:name="Age"
+                                       th:value="${user.age}">
                             </label></p>
                             <p><label for="deleteUserEmail"> <strong>Email</strong>
                                 <input class="form-control text-secondary" type="email" name="Email" id="deleteUserEmail" disabled
