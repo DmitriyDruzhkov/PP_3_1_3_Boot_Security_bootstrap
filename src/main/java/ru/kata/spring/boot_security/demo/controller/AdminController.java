@@ -29,7 +29,7 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping("")
+    @GetMapping
     public String userList(Model model, Principal principal) {
         model.addAttribute("users", userService.findAll());
         User user = userService.findByUsername(principal.getName());
@@ -54,7 +54,7 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") User user) {
+    public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
         return "redirect:/admin";
     }

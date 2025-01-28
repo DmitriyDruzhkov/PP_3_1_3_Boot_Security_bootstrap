@@ -23,7 +23,7 @@ public class DbInit {
 
     @PostConstruct
     public void init() {
-        Role admin = new Role("ROLE_ADMIN");
+        Role admin = new Role("ROLE_ADMIN, ROLE_USER");
         Role user = new Role("ROLE_USER");
 
         roleService.addRole(admin);
