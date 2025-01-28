@@ -107,7 +107,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
-                                <form class="col-4" th:action="@{/admin/}" th:object="${newUser}" th:method="POST">
+                                <form class="col-4" th:action="@{/admin/create}" th:object="${newUser}" th:method="POST">
                                     <div class="form-group text-center">
                                         <label for="username" class="col-form-label">Username</label>
                                         <input th:field="*{username}" type="text" class="form-control"
@@ -148,7 +148,7 @@
 <div class="modal fade" th:each="user : ${users}" th:id="${'modalEdit'+user.getId()}">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="formEdit" th:method="PATCH" th:action="@{/admin/{id} (id=${user.id})}"
+            <form id="formEdit" th:method="PATCH" th:action="@{/admin/update{id} (id=${user.id})}"
                   th:object="${user}">
                 <div class="modal-header"><h5 class="modal-title">Edit user</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -217,7 +217,7 @@
      aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form id="formDelete" th:method="DELETE" th:action="@{/admin/{id} (id=${user.id})}"
+            <form id="formDelete" th:method="DELETE" th:action="@{/admin/delete{id} (id=${user.id})}"
                   th:object="${user}">
                 <div class="modal-header"><h5 class="modal-title">Delete user</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>

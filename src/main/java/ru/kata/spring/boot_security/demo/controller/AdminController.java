@@ -40,26 +40,26 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/")
+    @GetMapping("/create")
     public String createUser(User user, Model model) {
         model.addAttribute("user", user);
         model.addAttribute("roles", roleService.getRoles());
         return "admin";
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public String createUser(User user) {
         userService.save(user);
         return "redirect:/admin";
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/update{id}")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
         return "redirect:/admin";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteById(id);
         return "redirect:/admin";

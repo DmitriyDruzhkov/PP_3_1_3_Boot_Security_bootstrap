@@ -23,13 +23,13 @@ public class DbInit {
 
     @PostConstruct
     public void init() {
-        Role admin = new Role("ROLE_ADMIN, ROLE_USER");
+        Role admin = new Role("ROLE_ADMIN");
         Role user = new Role("ROLE_USER");
 
         roleService.addRole(admin);
         roleService.addRole(user);
 
-        userService.save(new User("admin", "adminov", 30, "admin@admin.com", "admin", Set.of(admin)));
+        userService.save(new User("admin", "adminov", 30, "admin@admin.com", "admin", Set.of(admin, user)));
         userService.save(new User("user", "userov", 35, "user@user.com", "user", Set.of(user)));
     }
 }
