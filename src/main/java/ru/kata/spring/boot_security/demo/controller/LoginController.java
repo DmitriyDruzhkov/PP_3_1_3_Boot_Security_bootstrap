@@ -7,7 +7,7 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 
 @Controller
 public class LoginController {
-    UserService userService;
+    private UserService userService;
 
     @Autowired
     private void setUserService(UserService userService) {
@@ -15,7 +15,7 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    private String loginPage() {
+    private String loginPageOpen() {
         return "login";
     }
 }
